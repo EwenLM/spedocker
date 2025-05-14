@@ -1,0 +1,67 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           Int           @id @unique @default(autoincrement())
+  name         String        @db.VarChar(255)
+  first_name   String        @db.VarChar(255)
+  email        String        @unique @db.VarChar(255)
+  password     String        @db.VarChar(255)
+  isSuperAdmin Boolean       @default(false)
+  realisation  Realisation[]
+}
+
+model Realisation {
+  id          Int        @id @default(autoincrement())
+  title       String     @db.VarChar(255)
+  description String     @db.Text
+  author      User       @relation(fields: [authorId], references: [id])
+  authorId    Int
+  category    Category   @relation(fields: [categoryid], references: [id])
+  categoryid  Int
+  images      Image[]    @relation("RealisationImages") 
+}
+
+model TeamMember {
+  id      Int     @id @default(autoincrement())
+  name    String  @db.VarChar(255)
+  role    String  @db.VarChar(255)
+  bio     String? @db.Text
+  image   Image?  @relation("TeamMemberImage", fields: [imageId], references: [id]) 
+  imageId Int?    @unique 
+}
+
+model Image {
+  id            Int       @id @default(autoincrement())
+  imagePath     String
+  altText       String    @db.VarChar(255)
+  uploadedAt    DateTime  @default(now())
+
+  // Plusieurs images pour Realisation (optionnelle)
+  realisation   Realisation? @relation("RealisationImages", fields: [realisationId], references: [id], onDelete: Cascade)
+  realisationId Int?
+
+  // Une seule image pour un TeamMember (optionnelle)
+  teamMember    TeamMember?  @relation("TeamMemberImage")
+}
+
+
+model Category {
+  id           Int           @id @default(autoincrement())
+  name         String
+  realisations Realisation[]
+}
+
