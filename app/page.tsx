@@ -11,6 +11,7 @@ export default function Home() {
     <>
       <Header />
 
+    {/* Contenu centré sur la page */}
       <main className="container flex flex-col mx-auto ">
         <section id="presentation" className="flex flex-col my-10 items-center ">
           <h2 className="text-3xl md:text-4xl text-center">Nos Services</h2>
