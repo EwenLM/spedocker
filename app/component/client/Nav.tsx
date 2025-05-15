@@ -62,7 +62,7 @@ export default function Nav() {
                 src="/images/logo.png"
                 width={150}
                 height={100}
-                alt="logo spe société pontivyenne électricité planet"
+                alt="logo spe société pontivyenne électricité planette"
               />
             </Link>
           </div>
@@ -70,34 +70,34 @@ export default function Nav() {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <a>A Propos</a>
+              <Link href={""} className="text-lg">A Propos</Link>
             </li>
             <li>
               <details>
-                <summary>Services</summary>
+                <summary className="text-lg">Services</summary>
                 <ul className="p-2">
                   <li>
-                    <a>Electricité</a>
+                    <Link href={""} className="text-lg">Electricité</Link>
                   </li>
                   <li>
-                    <a>Plomberie</a>
+                    <Link href={""} className="text-lg">Plomberie</Link>
                   </li>
                   <li>
-                    <a>Chauffage</a>
+                    <Link href={""} className="text-lg">Chauffage</Link>
                   </li>
                   <li>
-                    <a>Domotique</a>
+                    <Link href={""} className="text-lg">Domotique</Link>
                   </li>
                 </ul>
               </details>
             </li>
             <li>
-              <a>Réalisations</a>
+              <Link href={""} className="text-lg">Réalisations</Link>
             </li>
           </ul>
         </div>
-        <div className="navbar-end">
-          <a className="btn btn-primary">Contact</a>
+        <div className="navbar-end md:me-5">
+          <Link href={""} className="btn btn-primary text-lg">Contact</Link>
         </div>
       </div>
     </nav>
