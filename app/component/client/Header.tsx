@@ -7,7 +7,7 @@ import bg from '/public/images/bg.jpg' // ⚠️ nécessaire pour le blur local
 
 export default function Header() {
   const scrollToNextSection = () => {
-    const section = document.getElementById('presentation')
+    const section = document.getElementById('main')
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' })
     }

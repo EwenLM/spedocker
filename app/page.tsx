@@ -4,6 +4,7 @@ import "@/app/component/client/Header";
 import Header from "./component/client/Header";
 import { Plug2, ShowerHead, Flame, SlidersHorizontal } from "lucide-react";
 import Count from "./component/client/Count";
+import Link from "next/link";
 
 
 export default function Home() {
@@ -12,11 +13,11 @@ export default function Home() {
       <Header />
 
     {/* Contenu centré sur la page */}
-      <main className="container flex flex-col mx-auto ">
+      <main id="main" className="container flex flex-col mx-auto ">
         <section id="presentation" className="flex flex-col my-10 items-center ">
           <h2 className="text-3xl md:text-4xl text-center">Nos Services</h2>
           <div className="md:flex my-7">
-            <article className="my-5 md:my-0 card bg-base-100 w-70 h-90 md:mx-3 flex flex-col justify-center items-center shadow-sm group  hover:bg-yellow-500">
+            <article className="my-5 md:my-0 card bg-white w-70 h-90 md:mx-3 flex flex-col justify-center items-center shadow-sm group  hover:bg-yellow-500">
               <h3 className="card-title text-xl mb-7">Electricité</h3>
               <figure>
                 <Plug2 size={60} className="text-yellow-500  group-hover:text-black" />
@@ -33,7 +34,7 @@ export default function Home() {
                 </div>
               </div>
             </article>
-            <article className="my-5 md:my-0 card bg-base-100 w-70 h-90 md:mx-3 flex flex-col justify-center items-center shadow-sm group  hover:bg-blue-500">
+            <article className="my-5 md:my-0 card bg-white w-70 h-90 md:mx-3 flex flex-col justify-center items-center shadow-sm group  hover:bg-blue-500">
               <h3 className="card-title text-xl mb-7">Plomberie</h3>
               <figure>
                 <ShowerHead size={60} className="text-blue-500  group-hover:text-black" />
@@ -50,7 +51,7 @@ export default function Home() {
                 </div>
               </div>
             </article>
-            <article className="my-5 md:my-0 card bg-base-100 w-70 h-90 md:mx-3 flex flex-col justify-center items-center shadow-sm group  hover:bg-red-500">
+            <article className="my-5 md:my-0 card bg-white w-70 h-90 md:mx-3 flex flex-col justify-center items-center shadow-sm group  hover:bg-red-500">
               <h3 className="card-title text-xl mb-7">Electricité</h3>
               <figure>
                 <Flame size={60} className="text-red-500  group-hover:text-black" />
@@ -67,7 +68,7 @@ export default function Home() {
                 </div>
               </div>
             </article>
-            <article className="my-5 md:my-0 card bg-base-100 w-70 h-90 md:mx-3 flex flex-col justify-center items-center shadow-sm group  hover:bg-green-500">
+            <article className="my-5 md:my-0 card bg-white w-70 h-90 md:mx-3 flex flex-col justify-center items-center shadow-sm group  hover:bg-green-500">
               <h3 className="card-title text-xl mb-7">Electricité</h3>
               <figure>
                 <SlidersHorizontal size={60} className="text-green-500  group-hover:text-black" />
@@ -88,8 +89,9 @@ export default function Home() {
           </div>
         </section>
 
-        <div className="bg-base-200 flex items-center">
-          <h2 className="text-3xl">A vos côtés depuis <Count/> ans</h2>
+        <div className="bg-white py-5 mb-10 flex rounded-lg mx-auto shadow-sm w-4/5 justify-center items-center">
+          <h2 className="text-3xl text-center me-5">A vos côtés depuis <Count/> ans</h2>
+          <Link href={""} className="btn btn-secondary text-lg">Découvrire notre histoire</Link>
         </div>
         
       </main>
