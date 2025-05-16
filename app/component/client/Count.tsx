@@ -12,7 +12,7 @@ export default function Count() {
 
       <CountUp 
         end={years}
-        duration={4}
+        duration={8}
       />
 
   )
