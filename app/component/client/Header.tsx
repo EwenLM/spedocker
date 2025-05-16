@@ -1,41 +1,36 @@
-'use client'
+"use client";
 
-import React from 'react'
-import Image from 'next/image'
-import { ArrowDown } from 'lucide-react'
-import bg from '/public/images/bg.jpg' // ⚠️ nécessaire pour le blur local
+import React from "react";
+import Image from "next/image";
+import { ArrowDown } from "lucide-react";
+
 
 export default function Header() {
   const scrollToNextSection = () => {
-    const section = document.getElementById('main')
+    const section = document.getElementById("main");
     if (section) {
-      section.scrollIntoView({ behavior: 'smooth' })
+      section.scrollIntoView({ behavior: "smooth" });
     }
-  }
+  };
 
   return (
-    <header className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Image optimisée avec blur */}
-      <Image
-        src={bg} // importée pour blur
-        alt="Équipe en intervention"
-        fill
-        priority
-        quality={80}
-        placeholder="blur"
-        className="object-cover object-[50%_30%] md:object-center z-0"
-      />
+    <header
+      className="relative h-screen flex items-center justify-center overflow-hidden
+    bg-[url('/images/bg.jpg')] bg-fixed bg-no-repeat bg-cover
+    bg-[center_50%] md:bg-[center_30%] md:h-screen h-[70vh]"
+    >
+      {/* Contenu z-2 */}
+      <div className="absolute inset-0 bg-black/10 z-2"></div>
 
-      {/* Contenu centré */}
-      <div className="relative z-10 p-6 flex flex-col items-center text-center">
+      {/* Contenu z-5 */}
+      <div className="relative z-5 p-6 flex flex-col items-center text-center">
         <h1 className="text-4xl md:text-6xl font-bold mb-4 text-white my-10 drop-shadow-xl">
           Société Pontivyenne d'Électricité
         </h1>
       </div>
 
-      {/* Flèche */}
       <div
-        className="absolute bottom-10 cursor-pointer z-10"
+        className="absolute bottom-10 cursor-pointer z-5"
         onClick={scrollToNextSection}
       >
         <ArrowDown
@@ -44,5 +39,5 @@ export default function Header() {
         />
       </div>
     </header>
-  )
+  );
 }
