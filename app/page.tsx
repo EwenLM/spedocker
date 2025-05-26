@@ -1,99 +1,188 @@
 import Image from "next/image";
 import styles from "./page.module.css";
-import "@/app/component/client/Header";
 import Header from "./component/client/Header";
-import { Plug2, ShowerHead, Flame, SlidersHorizontal } from "lucide-react";
+import {
+  Plug2,
+  ShowerHead,
+  Flame,
+  SlidersHorizontal,
+  House,
+  Store,
+  MapPin,
+} from "lucide-react";
 import Count from "./component/client/Count";
 import Link from "next/link";
+import Card from "./component/client/Card";
+import Article from "./component/client/Article";
 
+// Tableau des Services
+const services = [
+  {
+    title: "Electricité",
+    icon: Plug2,
+    color: "yellow",
+    items: [
+      "Rénovations",
+      "Remise aux normes",
+      "Maison connectée",
+      "Ventilation",
+    ],
+  },
+  {
+    title: "Plomberie",
+    icon: ShowerHead,
+    color: "blue",
+    items: ["Rénovations", "Chauffe-eau", "Maison neuve", "Accessibilité PMR"],
+  },
+  {
+    title: "Chauffage",
+    icon: Flame,
+    color: "red",
+    items: [
+      "Géothermie",
+      "Aérothermie",
+      "Gestion intelligente",
+      "Chauffage au sol",
+    ],
+  },
+  {
+    title: "Domotique",
+    icon: SlidersHorizontal,
+    color: "green",
+    items: [
+      "Commandes centralisées",
+      "Sonorisation",
+      "Alarmes",
+      "Vidéosurveillance",
+    ],
+  },
+];
+
+//Tableau secteur
+const secteurs = [
+  {
+    title: "Résidentiel",
+    icon: House,
+    color: "black",
+    items: ["Maisons", "Habitat Collectif", "Appartement"],
+  },
+  {
+    title: "Tertiaire",
+    icon: Store,
+    color: "black",
+    items: ["Commerce", "Administration", "Collectivités"],
+  },
+  {
+    title: "Zone d'activité",
+    icon: MapPin,
+    color: "black",
+    items: [
+      "100 km autour de Pontivy",
+      "Saint-Brieuc/ Ploërmel",
+      "Vannes/Lorient",
+    ],
+  },
+];
+
+// Tableau article
+const articles = [
+  {
+    title: "Certifications",
+    paragraph:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. In, velit! Tempore quidem, impedit voluptas cum recusandae placeat voluptates facilis saepe. Sit at quia veritatis facere maxime accusamus, ipsum vitae eius voluptas laborum alias nobis velit! Quam facere ipsum et. Non qui a odit voluptatem, suscipit quo excepturi, quae repellat amet officiis sapiente obcaecati eaque cupiditate natus quam, et omnis. Fugit cupiditate aspernatur, blanditiis deserunt exercitationem ea! Autem, ipsa fugiat neque at praesentium voluptatum minima ratione animi? At autem ab porro, nostrum atque accusantium corrupti iste eligendi ut officia pariatur iusto saepe, quis magnam mollitia laborum rem ex velit nihil voluptatem.",
+    images: ["qualibat", "knx", "installateur", "certif_legrand"],
+    links: [
+      "https://www.qualibat.com/",
+      "https://www.knx.org/knx-fr/pour-les-professionnels/index.php",
+      "https://www.electriciencertifie.fr/rechercher-un-electricien/spe-noyal-pontivy",
+      "https://www.deltadore.fr/actualites/conseil/professionnels-domotique-delta-dore",
+    ],
+    alts: [
+      "qualibat chaudières pompe à chaleurs vmc logo",
+      "knx partner logo",
+      "electriciencertifé.fr, réseau legrand logo",
+      "delta dore logo",
+    ],
+  },
+  {
+    title: "Partenaires",
+    paragraph:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. In, velit! Tempore quidem, impedit voluptas cum recusandae placeat voluptates facilis saepe. Sit at quia veritatis facere maxime accusamus, ipsum vitae eius voluptas laborum alias nobis velit! Quam facere ipsum et. Non qui a odit voluptatem, suscipit quo excepturi, quae repellat amet officiis sapiente obcaecati eaque cupiditate natus quam, et omnis. Fugit cupiditate aspernatur, blanditiis deserunt exercitationem ea! Autem, ipsa fugiat neque at praesentium voluptatum minima ratione animi? At autem ab porro, nostrum atque accusantium corrupti iste eligendi ut officia pariatur iusto saepe, quis magnam mollitia laborum rem ex velit nihil voluptatem.",
+    images: ["arkteos", "atlantic", "dahua", "legrand", "deltadore", "acova"],
+    links: [
+      "https://www.legrand.fr/",
+      "https://www.atlantic.fr/",
+      "https://www.dahuasecurity.com/",
+      "https://www.deltadore.fr/",
+      "https://www.arkteos.com/",
+      "https://www.acova.fr/",
+    ],
+    alts: [
+      "qualibat chaudières pompe à chaleurs vmc logo",
+      "knx partner logo",
+      "electriciencertifé.fr, réseau legrand logo",
+      "delta dore logo",
+    ]
+  },
+];
 
 export default function Home() {
   return (
     <>
       <Header />
 
-    {/* Contenu centré sur la page */}
-      <main id="main" className="container flex flex-col mx-auto ">
-        <section id="presentation" className="flex flex-col my-10 items-center ">
+      {/* ================Cards Services)================ */}
+      {/* Contenu centré sur la page */}
+      <main id="main" className="flex flex-col mx-auto container">
+        <section id="service" className="flex flex-col md:my-10  items-center ">
           <h2 className="text-3xl md:text-4xl text-center">Nos Services</h2>
           <div className="md:flex my-7">
-            <article className="my-5 md:my-0 card bg-white w-70 h-90 md:mx-3 flex flex-col justify-center items-center shadow-sm group  hover:bg-yellow-500">
-              <h3 className="card-title text-xl mb-7">Electricité</h3>
-              <figure>
-                <Plug2 size={60} className="text-yellow-500  group-hover:text-black" />
-              </figure>
-              <div className=" mt-3 flex flex-col items-center">
-                <ul className="text-center mb-7">
-                  <li>Rénovations</li>
-                  <li>Remise aux normes</li>
-                  <li>Maison connectée</li>
-                  <li>Ventilation</li>
-                </ul>
-                <div className="card-actions justify-end">
-                  <button className="btn btn-secondary">En savoir +</button>
-                </div>
-              </div>
-            </article>
-            <article className="my-5 md:my-0 card bg-white w-70 h-90 md:mx-3 flex flex-col justify-center items-center shadow-sm group  hover:bg-blue-500">
-              <h3 className="card-title text-xl mb-7">Plomberie</h3>
-              <figure>
-                <ShowerHead size={60} className="text-blue-500  group-hover:text-black" />
-              </figure>
-              <div className=" mt-3 flex flex-col items-center">
-                <ul className="text-center mb-7">
-                  <li>Rénovations</li>
-                  <li>Chauffe-eau</li>
-                  <li>Maison neuve</li>
-                  <li>Accessibilité PMR</li>
-                </ul>
-                <div className="card-actions justify-end">
-                  <button className="btn btn-secondary">En savoir +</button>
-                </div>
-              </div>
-            </article>
-            <article className="my-5 md:my-0 card bg-white w-70 h-90 md:mx-3 flex flex-col justify-center items-center shadow-sm group  hover:bg-red-500">
-              <h3 className="card-title text-xl mb-7">Electricité</h3>
-              <figure>
-                <Flame size={60} className="text-red-500  group-hover:text-black" />
-              </figure>
-              <div className=" mt-3 flex flex-col items-center">
-                <ul className="text-center mb-7">
-                  <li>Géothermie</li>
-                  <li>Aérothermie</li>
-                  <li>Gestion intelligente</li>
-                  <li>Chauffage au sol</li>
-                </ul>
-                <div className="card-actions justify-end">
-                  <button className="btn btn-secondary">En savoir +</button>
-                </div>
-              </div>
-            </article>
-            <article className="my-5 md:my-0 card bg-white w-70 h-90 md:mx-3 flex flex-col justify-center items-center shadow-sm group  hover:bg-green-500">
-              <h3 className="card-title text-xl mb-7">Electricité</h3>
-              <figure>
-                <SlidersHorizontal size={60} className="text-green-500  group-hover:text-black" />
-              </figure>
-              <div className=" mt-3 flex flex-col items-center">
-                <ul className="text-center mb-7">
-                  <li>Commande centraliséees</li>
-                  <li>Sonorisation</li>
-                  <li>Alarmes</li>
-                  <li>Vidéosurveillance</li>
-                </ul>
-                <div className="card-actions justify-end">
-                  <button className="btn btn-secondary">En savoir +</button>
-                </div>
-              </div>
-            </article>
-            
+            {services.map((service, index) => (
+              <Card key={index} {...service} />
+            ))}
           </div>
         </section>
 
-        <div className="bg-white py-5 mb-10 flex rounded-lg mx-auto shadow-sm w-4/5 justify-center items-center">
-          <h2 className="text-3xl text-center me-5">A vos côtés depuis <Count/> ans</h2>
-          <Link href={""} className="btn btn-secondary text-lg">Découvrire notre histoire</Link>
+        {/* ================Call to action================ */}
+        <div className="bg-white py-5 mb-10 flex flex-col md:flex-row rounded-lg mx-auto shadow-sm md:w-full justify-center items-center container">
+          <h2 className="text-3xl text-center mx-3 mb-2-3 md:me-5">
+            A vos côtés depuis <Count /> ans
+          </h2>
+          <Link href={""} className="btn mt-3 lg:mt-0 btn-secondary text-lg">
+            Découvrire notre histoire
+          </Link>
         </div>
-        
+
+        {/* =================Card Secteurs================== */}
+        <section
+          id="secteur"
+          className="flex flex-col md:my-10  items-center bg-base-200 md:bg-base-100"
+        >
+          <div className="bg-base-200 w-full absolute md:h-[270px]"></div>
+          <h2 className="text-3xl md:text-4xl pt-3 text-center z-5">
+            Secteurs d'activité
+          </h2>
+          <div className="md:flex my-7">
+            {secteurs.map((secteur, index) => (
+              <Card key={index} {...secteur} />
+            ))}
+          </div>
+        </section>
+
+        {/* ==============Certif et partenaires=========== */}
+        <section className="w-full">
+          {articles.map((article, index) => (
+            <Article
+              key={index}
+              title={article.title}
+              paragraph={article.paragraph}
+              images={article.images}
+              links={article.links}
+              alts={article.alts}
+              reversed={index % 2 !== 0} 
+            />
+          ))}
+        </section>
       </main>
     </>
   );
