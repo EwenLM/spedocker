@@ -28,7 +28,7 @@ export default function Form({ title, description, fields }: FormProps) {
 
   return (
     <div className="hero bg-blue-400 h-[400px] md:h-[300px]">
-      <div className="hero-content flex-col lg:flex-row-reverse w-full max-w-6xl">
+      <div className="hero-content flex-col lg:flex-row-reverse w-full max-w-6xl relative lg:top-[-100px]">
         {/* Titre et description */}
         <div className="text-center lg:text-left mb-6 lg:mb-0 lg:me-10">
           <h2 className="text-4xl font-bold">{title}</h2>

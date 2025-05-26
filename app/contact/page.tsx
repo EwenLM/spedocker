@@ -6,9 +6,9 @@ export default function Page() {
   return (
     <>
     <header className="pt-40 text-center">
-      <h1 className="text-6xl text-bold">Contact</h1>
+      <h1 className="text-6xl font-bold">Contact</h1>
     </header>
-      <main className="h-screen mt-20">
+      <main className="h-screen mt-20 lg:mt-35">
         <Form
           title="Vos coordonnées"
           description="Commencez par renseigner vos coordonnées et l'objet de votre demande."
