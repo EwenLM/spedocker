@@ -14,7 +14,7 @@ const borderHoverClasses: Record<string, string> = {
   blue: "hover:border-blue-500",
   red: "hover:border-red-500",
   green: "hover:border-green-500",
-  black:"hover:border-black"
+  black: "hover:border-secondary"
 };
 
 const iconColorClasses: Record<string, string> = {
