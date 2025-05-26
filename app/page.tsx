@@ -1,5 +1,3 @@
-import Image from "next/image";
-import styles from "./page.module.css";
 import Header from "./component/client/Header";
 import {
   Plug2,

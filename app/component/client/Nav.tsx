@@ -97,7 +97,7 @@ export default function Nav() {
           </ul>
         </div>
         <div className="navbar-end md:me-5">
-          <Link href={""} className="btn btn-primary text-lg">Contact</Link>
+          <Link href={"/contact"} className="btn btn-primary text-lg">Contact</Link>
         </div>
       </div>
     </nav>
