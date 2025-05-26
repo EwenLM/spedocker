@@ -1,19 +1,24 @@
 import React from "react";
 import Link from "next/link";
-import Form from "../component/client/Form";
+import FormSteps from "../component/client/FormSteps";
 
 export default function Page() {
   return (
     <>
-    <header className="pt-40 text-center">
-      <h1 className="text-6xl font-bold">Contact</h1>
-    </header>
+      <header className="pt-40 text-center">
+        <h1 className="text-6xl font-bold">Contact</h1>
+      </header>
       <main className="h-screen mt-20 lg:mt-35">
-        <Form
+        <FormSteps
           title="Vos coordonnées"
           description="Commencez par renseigner vos coordonnées et l'objet de votre demande."
           fields={[
-            { type: "text", label: "Nom", placeholder: "Doe", name: "nom" },
+            {
+              type: "text",
+              label: "Nom",
+              placeholder: "Doe",
+              name: "nom",
+            },
             {
               type: "text",
               label: "Prénom",
