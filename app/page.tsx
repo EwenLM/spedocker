@@ -14,6 +14,8 @@ import Count from "./component/client/Count";
 import Link from "next/link";
 import Card from "./component/client/Card";
 import Article from "./component/client/Article";
+import Note from "./component/client/Note";
+
 
 // Tableau des Services
 const services = [
@@ -183,6 +185,10 @@ export default function Home() {
             />
           ))}
         </section>
+
+        {/* =============Avis Google============== */}
+        <Note/>
+
       </main>
     </>
   );
