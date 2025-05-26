@@ -122,7 +122,7 @@ const articles = [
       "knx partner logo",
       "electriciencertifé.fr, réseau legrand logo",
       "delta dore logo",
-    ],
+    ]
   },
 ];
 
@@ -133,7 +133,7 @@ export default function Home() {
 
       {/* ================Cards Services)================ */}
       {/* Contenu centré sur la page */}
-      <main id="main" className="flex flex-col mx-auto ">
+      <main id="main" className="flex flex-col mx-auto container">
         <section id="service" className="flex flex-col md:my-10  items-center ">
           <h2 className="text-3xl md:text-4xl text-center">Nos Services</h2>
           <div className="md:flex my-7">
@@ -148,7 +148,7 @@ export default function Home() {
           <h2 className="text-3xl text-center mx-3 mb-2-3 md:me-5">
             A vos côtés depuis <Count /> ans
           </h2>
-          <Link href={""} className="btn btn-secondary text-lg">
+          <Link href={""} className="btn mt-3 lg:mt-0 btn-secondary text-lg">
             Découvrire notre histoire
           </Link>
         </div>

@@ -14,6 +14,7 @@ const borderHoverClasses: Record<string, string> = {
   blue: "hover:border-blue-500",
   red: "hover:border-red-500",
   green: "hover:border-green-500",
+  black:"hover:border-black"
 };
 
 const iconColorClasses: Record<string, string> = {
@@ -21,6 +22,7 @@ const iconColorClasses: Record<string, string> = {
   blue: "text-blue-500",
   red: "text-red-500",
   green: "text-green-500",
+  black:"text-black"
 };
 
 export default function ServiceCard({

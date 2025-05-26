@@ -22,50 +22,48 @@ export default function Article({
   reversed = false,
 }: ArticleProps) {
   return (
-    <article className="my-20 bg-amber-400 w-full">
-      <div
-        className={clsx(
-          "grid grid-cols-1 md:grid-cols-5 items-start gap-4 px-4 md:px-10 relative",
-          reversed && "md:flex-row-reverse"
-        )}
-      >
-        {/* Texte */}
-        <div
-          className={clsx(
-            "md:col-span-3 bg-white p-6 rounded-lg shadow-md",
-            reversed ? "md:col-start-3" : "md:col-start-1"
-          )}
-        >
-          <h3 className="text-2xl font-bold mb-4 p-5">{title}</h3>
-          <p className="text-justify p-5">{paragraph}</p>
-        </div>
+   <article className="my-20 bg-blue-100 shadow-md">
+  <div className="grid md:grid-cols-5 items-stretch gap-4">
 
-        {/* Logos en aside */}
-        <aside
-          className={clsx(
-            "md:col-span-2 flex flex-wrap justify-center gap-4 mt-6 md:mt-0",
-            reversed ? "md:col-start-1" : "md:col-start-4"
-          )}
+    {/* ASIDE : logos */}
+    <aside
+      className={clsx(
+        "md:col-span-2 flex flex-wrap justify-center items-center",
+        reversed ? "md:order-1" : "md:order-2"
+      )}
+    >
+      {images.map((image, index) => (
+        <Link
+          key={index}
+          href={links[index]}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="transition"
         >
-          {images.map((image, index) => (
-            <Link
-              key={index}
-              href={links[index]}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-[150px] h-[100px] flex items-center justify-center shadow-sm hover:shadow-md transition"
-            >
-              <Image
-                src={`/images/certifs_partenaires/${image}.png`}
-                alt={alts[index]}
-                width={130}
-                height={90}
-                className="object-contain rounded-md"
-              />
-            </Link>
-          ))}
-        </aside>
-      </div>
-    </article>
+          <Image
+            src={`/images/certifs_partenaires/${image}.png`}
+            alt={alts[index] || "Logo partenaire"}
+            width={130}
+            height={90}
+            className="object-contain rounded-md w-[150px] h-[100px] px-1 m-1"
+          />
+        </Link>
+      ))}
+    </aside>
+
+    {/* Texte */}
+    <div
+      className={clsx(
+        "md:col-span-3 bg-white p-8 shadow-md flex flex-col justify-center",
+        reversed ? "md:order-2" : "md:order-1"
+      )}
+    >
+      <h3 className="text-2xl font-bold mb-4">{title}</h3>
+      <p className="text-justify">{paragraph}</p>
+    </div>
+
+  </div>
+</article>
+
   );
 }

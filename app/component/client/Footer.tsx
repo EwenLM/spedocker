@@ -7,7 +7,7 @@ export default function Footer() {
     <footer>
       <div className="footer sm:footer-horizontal bg-[#111827] text-base-200 p-10">
         <aside>
-          <Link href={""}>
+          <Link href={"/"}>
             <Image
               src="/images/logo.png"
               width={150}

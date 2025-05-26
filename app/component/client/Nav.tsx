@@ -57,7 +57,7 @@ export default function Nav() {
             </ul>
           </div>
           <div className="bg-base-300">
-            <Link href={""}>
+            <Link href={"/"}>
               <Image
                 src="/images/logo.png"
                 width={150}
