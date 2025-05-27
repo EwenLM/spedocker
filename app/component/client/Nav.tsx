@@ -29,7 +29,7 @@ export default function Nav() {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1000 mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[3000] mt-3 w-52 p-2 shadow"
             >
               <li>
                 <Link href={"/"}>A Propos</Link>
@@ -97,7 +97,7 @@ export default function Nav() {
           </ul>
         </div>
         <div className="navbar-end md:me-5">
-          <Link href={""} className="btn btn-primary text-lg">Contact</Link>
+          <Link href={"/contact"} className="btn btn-primary text-lg">Contact</Link>
         </div>
       </div>
     </nav>

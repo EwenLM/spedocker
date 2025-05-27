@@ -45,7 +45,7 @@ export default function Article({
             alt={alts[index] || "Logo partenaire"}
             width={130}
             height={90}
-            className="object-contain rounded-md w-[150px] h-[100px] px-1 m-1"
+            className="object-contain w-[150px] h-[100px] px-1 m-1 hover:border-b-3 border-b-primary"
           />
         </Link>
       ))}
