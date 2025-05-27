@@ -8,7 +8,7 @@ export default function Page() {
       <header className="pt-40 text-center">
         <h1 className="text-6xl font-bold">Contact</h1>
       </header>
-      <main className="h-screen mt-20 lg:mt-35">
+      <main className=" mt-20 lg:mt-35">
         <FormSteps
           fields={[
             {

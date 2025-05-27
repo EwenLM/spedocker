@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer>
+    <footer className="static z-2">
       <div className="footer sm:footer-horizontal bg-[#111827] text-base-200 p-10">
         <aside>
           <Link href={"/"}>
