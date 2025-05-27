@@ -10,19 +10,17 @@ export default function Page() {
       </header>
       <main className="h-screen mt-20 lg:mt-35">
         <FormSteps
-          title="Vos coordonnées"
-          description="Commencez par renseigner vos coordonnées et l'objet de votre demande."
           fields={[
             {
               type: "text",
               label: "Nom",
-              placeholder: "Doe",
+              placeholder: "Dupont",
               name: "nom",
             },
             {
               type: "text",
               label: "Prénom",
-              placeholder: "John",
+              placeholder: "Claire",
               name: "prenom",
             },
             {
@@ -34,21 +32,36 @@ export default function Page() {
             {
               type: "email",
               label: "Email",
-              placeholder: "john@doe.fr",
+              placeholder: "exemple@domaine.fr",
               name: "email",
             },
             {
               type: "select",
               label: "Objet",
               name: "objet",
-              options: [
-                "Demande de devis",
-                "Renseignement",
-                "Candidature",
-                "Autre",
-              ],
+              options: ["Demande de devis", "Renseignement", "Candidature"],
             },
           ]}
+          steps={{
+            step1: {
+              title: "Coordonnées",
+              description: "Merci de renseigner vos informations",
+            },
+            step2: {
+              "Demande de devis": {
+                title: "Détails du projet",
+                description: "Précisez votre besoin. Vous pouvez joindre des photos, plans, etc...",
+              },
+              Candidature: {
+                title: "Votre candidature",
+                description: "Ajoutez vos documents et informations",
+              },
+              Renseignement: {
+                title: "Posez votre question",
+                description: "On vous répondra le plus rapidemment possible !",
+              },
+            },
+          }}
         />
       </main>
     </>
