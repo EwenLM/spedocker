@@ -32,7 +32,7 @@ export default function Nav() {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[3000] mt-3 w-52 p-2 shadow"
             >
               <li>
-                <Link href={"/"}>A Propos</Link>
+                <Link href={"/about"}>A Propos</Link>
               </li>
               <li>
                 <Link href={"/"}>Services</Link>
@@ -70,7 +70,7 @@ export default function Nav() {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <Link href={""} className="text-lg">A Propos</Link>
+              <Link href={"/about"} className="text-lg">A Propos</Link>
             </li>
             <li>
               <details>

@@ -37,7 +37,7 @@ interface FormProps {
   fields: Field[];
   steps: {
     step1: { title: string; description: string };
-    step2: Record<string, { title: string; description: string }>; // un titre/desc par objet
+    step2: Record<string, { title: string; description: string }>;
   };
 }
 
@@ -137,11 +137,11 @@ export default function FormSteps({ fields, steps }: FormProps) {
   const currentFields = step === 1 ? fields : secondForms[selectedObjet] ?? [];
 
   return (
-    <div className="relative">
+    <div className="relative ">
       {/* Bande de fond bleue centrée */}
       <div className="absolute top-[200px] lg:top-1/2 left-0 w-full h-[400px] -translate-y-1/2 bg-indigo-200 z-0" />
 
-      <div className="relative z-2">
+      <div className="relative z-2 mb-10 md:mb-30">
         <div className="hero-content flex-col lg:flex-row-reverse w-full max-w-6xl mx-auto py-20 lg:py-0 transition-all duration-500">
           {/* Titre + description */}
           <div className="text-center lg:text-left mb-6 lg:mb-0 lg:me-10">
