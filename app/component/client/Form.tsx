@@ -4,13 +4,13 @@ type Field =
   | { type: "text" | "email" | "tel"; label: string; name: string; placeholder?: string }
   | { type: "select"; label: string; name: string; options: string[] };
 
-interface GenericFormProps {
+interface FormProps {
   fields: Field[];
   onSubmit: (data: Record<string, string>) => void;
   buttonLabel?: string;
 }
 
-export default function GenericForm({ fields, onSubmit, buttonLabel = "Ajouter" }: GenericFormProps) {
+export default function GenericForm({ fields, onSubmit, buttonLabel = "Ajouter" }: FormProps) {
   const [formData, setFormData] = React.useState<Record<string, string>>({});
 
   const handleChange = (name: string, value: string) => {

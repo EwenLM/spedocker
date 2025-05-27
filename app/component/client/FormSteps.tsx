@@ -33,12 +33,13 @@ type Field =
       placeholder?: string;
     };
 
-interface FormProps {
+interface FormStepsProps {
   fields: Field[];
   steps: {
     step1: { title: string; description: string };
     step2: Record<string, { title: string; description: string }>;
   };
+  onSubmit: (email: string, formData: Record<string, any>) => Promise<void>; // <-- Ajoute ça
 }
 
 // Formulaires secondaires selon l’objet
@@ -120,7 +121,7 @@ const secondForms: Record<string, Field[]> = {
   ],
 };
 
-export default function FormSteps({ fields, steps }: FormProps) {
+export default function FormSteps({ fields, steps, onSubmit }: FormStepsProps) {
   const [selectedObjet, setSelectedObjet] = useState("");
   const [step, setStep] = useState<1 | 2>(1);
   const currentTitle =
@@ -134,7 +135,41 @@ export default function FormSteps({ fields, steps }: FormProps) {
       : steps.step2[selectedObjet]?.description || "";
 
   // Formulaire affiché selon étape
-  const currentFields = step === 1 ? fields : secondForms[selectedObjet] ?? [];
+  const currentFields =
+    step === 1 ? fields : (secondForms[selectedObjet] ?? []);
+
+  //Envoi du formulaire
+  const [email, setEmail] = useState("");
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [message, setMessage] = useState("");
+  const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  const formElement = e.currentTarget as HTMLFormElement;
+  const formData = new FormData(formElement);
+
+  const jsonData: Record<string, any> = {};
+  formData.forEach((value, key) => {
+    if (jsonData[key]) {
+      jsonData[key] = Array.isArray(jsonData[key])
+        ? [...jsonData[key], value]
+        : [jsonData[key], value];
+    } else {
+      jsonData[key] = value;
+    }
+  });
+
+  const email = jsonData.email;
+
+  try {
+    await onSubmit(email, jsonData); // <-- onSubmit appelé ici
+    setIsSubmitted(true);
+    setMessage("Votre message a bien été envoyé. Un email de confirmation vous a été envoyé.");
+    formElement.reset();
+  } catch (error) {
+    setMessage("Erreur lors de l'envoi. Veuillez réessayer.");
+  }
+};
+
 
   return (
     <div className="relative ">
@@ -151,10 +186,14 @@ export default function FormSteps({ fields, steps }: FormProps) {
 
           {/* Form */}
           <div className="card bg-base-100 w-full max-w-2xl shrink-0 shadow-2xl">
+            {message && (
+              <p className="text-center text-green-600 my-3">{message}</p>
+            )}
             <div className="card-body md:p-25">
               <form
                 method="POST"
                 action="https://formsubmit.co/informatique@spe.bzh"
+                onSubmit={handleSubmit}
               >
                 <fieldset className="fieldset">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -286,9 +325,13 @@ export default function FormSteps({ fields, steps }: FormProps) {
                         </div>
                       ) : null
                     )}
-                  
+
                   {/* Input pour piéger les bots, invisble pour les utilisateurs */}
-                  <input type="text" name="_honey" style={{ display: "none" }} />
+                  <input
+                    type="text"
+                    name="_honey"
+                    style={{ display: "none" }}
+                  />
 
                   {/* Boutons */}
                   <div className="flex flex-col gap-4 mt-8">

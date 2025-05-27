@@ -1,15 +1,37 @@
+'use client'
 import React from "react";
-import Link from "next/link";
 import FormSteps from "../component/client/FormSteps";
+import { stringifyError } from "next/dist/shared/lib/utils";
 
 export default function Page() {
+
+  const handleForSubmit = async (email: string) => {
+    try{
+      const response = await fetch('/api/sendEmail', {
+        method: 'POST',
+        headers: {
+          'Content-Type' : 'application/json',
+        },
+        body: JSON.stringify({email})
+      });
+      if(response.ok){
+        console.log('Email envoyé')
+      }else {
+        console.log('Erreur pendant envoi')
+      }
+    }catch(error) {
+      console.log("Erreur lor sde l'envoi du mail")
+    }
+  }
+
+
   return (
     <>
       <header className="pt-40 text-center">
-        <h1 className="text-6xl font-bold">Contact</h1>
+        <h1 className="text-6xl font-bold">Contactez-nous</h1>
       </header>
       <main className=" mt-20 lg:mt-35">
-        <FormSteps
+        <FormSteps onSubmit={handleForSubmit}
           fields={[
             {
               type: "text",
@@ -45,7 +67,7 @@ export default function Page() {
           steps={{
             step1: {
               title: "Coordonnées",
-              description: "Merci de renseigner vos informations",
+              description: "Renseigner vos informations",
             },
             step2: {
               "Demande de devis": {
@@ -54,7 +76,7 @@ export default function Page() {
               },
               Candidature: {
                 title: "Votre candidature",
-                description: "Ajoutez vos documents et informations",
+                description: "Précisez le poste voulu et ajouter vos documents",
               },
               Renseignement: {
                 title: "Posez votre question",
