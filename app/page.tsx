@@ -184,7 +184,7 @@ export default function Home() {
         </section>
 
         {/* ==============Certif et partenaires=========== */}
-        <section className="w-full">
+        <section className="w-full ">
           {articles.map((article, index) => (
             <Article
               key={index}
