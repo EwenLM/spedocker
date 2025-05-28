@@ -7,6 +7,8 @@ interface ServiceCardProps {
   icon: LucideIcon;
   color: string;
   items: string[];
+  button: string;
+  buttonLink?: string;
 }
 
 const borderHoverClasses: Record<string, string> = {
@@ -30,6 +32,8 @@ export default function ServiceCard({
   icon: Icon,
   color,
   items,
+  button,
+  buttonLink
 }: ServiceCardProps) {
   return (
     <article
@@ -49,7 +53,7 @@ export default function ServiceCard({
           ))}
         </ul>
         <div className="card-actions justify-end">
-          <button className="btn btn-secondary">En savoir +</button>
+          <a href={buttonLink} className="btn btn-secondary">{button}</a>
         </div>
       </div>
     </article>

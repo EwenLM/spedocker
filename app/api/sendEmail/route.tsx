@@ -18,15 +18,15 @@ export async function POST(req: NextRequest) {
       host: "smtp-mail.outlook.com",
       port: 587,
       secure: false,
-      tls: {
-        rejectUnauthorized: false, // Désactive la vérification du certificat
-      },
+      // tls: {
+      //   rejectUnauthorized: false, // Désactive la vérification du certificat
+      // },
       auth: {
         user: process.env.SMTP_USER!,
         pass: process.env.SMTP_PASS!,
       },
     });
-console.log("SMTP_USER:", process.env.SMTP_USER);
+    console.log(process.env.SMTP_USER!, process.env.SMTP_PASS!);
 
     await transporter
       .verify()
