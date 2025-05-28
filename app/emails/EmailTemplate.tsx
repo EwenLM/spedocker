@@ -1,4 +1,5 @@
 // /emails/ConfirmationEmail.tsx
+import * as React from 'react';
 import {
   Html,
   Head,

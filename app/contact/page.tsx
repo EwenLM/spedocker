@@ -1,29 +1,31 @@
-'use client'
+"use client";
 import React from "react";
 import FormSteps from "../component/client/FormSteps";
 import { stringifyError } from "next/dist/shared/lib/utils";
 
 export default function Page() {
-
-  const handleForSubmit = async (email: string) => {
-    try{
-      const response = await fetch('/api/sendEmail', {
-        method: 'POST',
+  const handleForSubmit = async (data: {
+    email: string;
+    formData: Record<string, any>;
+  }) => {
+    try {
+      const response = await fetch("/api/sendEmail", {
+        method: "POST",
         headers: {
-          'Content-Type' : 'application/json',
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({email})
+        body: JSON.stringify(data),
       });
-      if(response.ok){
-        console.log('Email envoyé')
-      }else {
-        console.log('Erreur pendant envoi')
-      }
-    }catch(error) {
-      console.log("Erreur lor sde l'envoi du mail")
-    }
-  }
 
+      if (!response.ok) {
+        // Lève une erreur pour que le catch du composant affiche le bon message
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Erreur pendant envoi");
+      }
+    } catch (error) {
+      throw error;
+    }
+  };
 
   return (
     <>
@@ -31,7 +33,8 @@ export default function Page() {
         <h1 className="text-6xl font-bold">Contactez-nous</h1>
       </header>
       <main className=" mt-20 lg:mt-35">
-        <FormSteps onSubmit={handleForSubmit}
+        <FormSteps
+          onSubmit={handleForSubmit}
           fields={[
             {
               type: "text",
@@ -72,7 +75,8 @@ export default function Page() {
             step2: {
               "Demande de devis": {
                 title: "Détails du projet",
-                description: "Précisez votre besoin. Vous pouvez joindre des photos, plans, etc...",
+                description:
+                  "Précisez votre besoin. Vous pouvez joindre des photos, plans, etc...",
               },
               Candidature: {
                 title: "Votre candidature",
