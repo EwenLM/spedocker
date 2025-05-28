@@ -80,7 +80,7 @@ export default function Page() {
               />
             </svg>
           </div>
-          <div className="timeline-start mb-10 md:text-end">
+          <div className="timeline-start mb-10 md:text-end flex flex-col">
             <time className="font-mono italic"></time>
             <h3 className="text-lg font-black">Evolution</h3>
             L'activité s'est rapidement étendue à d'autre domaines d'expertise
@@ -90,7 +90,7 @@ export default function Page() {
             d'une dizaine de salariés dont la qualité du travail est reconnue.
             <Image
               src={`/images/about/batiment.jpg`}
-              alt={"marc allain gérant électricien electricien"}
+              alt={"plan nouveau locaux démenagement"}
               width={300}
               height={200}
               className="md:self-end mt-3 rounded-2xl"
@@ -126,7 +126,7 @@ export default function Page() {
             produits de la société Delta Dore (35).
             <Image
               src={`/images/about/drapeau.png`}
-              alt={"marc allain gérant électricien electricien"}
+              alt={"partenariat drapeau bretagne"}
               width={300}
               height={200}
               className="md:self-end mt-3 rounded-2xl"
@@ -150,7 +150,7 @@ export default function Page() {
               />
             </svg>
           </div>
-          <div className="timeline-start mb-10 md:text-end">
+          <div className="timeline-start mb-10 md:text-end flex flex-col">
             <time className="font-mono italic"></time>
             <h2 className="text-lg font-black">Avenir de l'entreprise</h2>
             Les dernières innovations dans nos métiers promettent à l'avenir des
@@ -165,7 +165,7 @@ export default function Page() {
             projet.
             <Image
               src={`/images/about/innovation.jpg`}
-              alt={"marc allain gérant électricien electricien"}
+              alt={"innovation plan maquette idées"}
               width={300}
               height={200}
               className="md:self-end mt-3 rounded-2xl"
