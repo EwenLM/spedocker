@@ -27,12 +27,16 @@ const services = [
       "Maison connectée",
       "Ventilation",
     ],
+    button: "En savoir +",
+    buttonLink: "/service/electricite",
   },
   {
     title: "Plomberie",
     icon: ShowerHead,
     color: "blue",
     items: ["Rénovations", "Chauffe-eau", "Maison neuve", "Accessibilité PMR"],
+    button: "En savoir +",
+    buttonLink: "/service/plomberie",
   },
   {
     title: "Chauffage",
@@ -44,6 +48,8 @@ const services = [
       "Gestion intelligente",
       "Chauffage au sol",
     ],
+    button: "En savoir +",
+    buttonLink: "/service/chauffage",
   },
   {
     title: "Domotique",
@@ -55,6 +61,8 @@ const services = [
       "Alarmes",
       "Vidéosurveillance",
     ],
+    button: "En savoir +",
+    buttonLink: "/service/domotique",
   },
 ];
 
@@ -65,12 +73,16 @@ const secteurs = [
     icon: House,
     color: "black",
     items: ["Maisons", "Habitat Collectif", "Appartement"],
+    button: "En savoir +",
+    buttonLink: "#",
   },
   {
     title: "Tertiaire",
     icon: Store,
     color: "black",
     items: ["Commerce", "Administration", "Collectivités"],
+    button: "En savoir +",
+    buttonLink: "#",
   },
   {
     title: "Zone d'activité",
@@ -81,6 +93,8 @@ const secteurs = [
       "Saint-Brieuc/ Ploërmel",
       "Vannes/Lorient",
     ],
+    button: "En savoir +",
+    buttonLink: "#",
   },
 ];
 
@@ -170,7 +184,7 @@ export default function Home() {
         </section>
 
         {/* ==============Certif et partenaires=========== */}
-        <section className="w-full">
+        <section className="w-full ">
           {articles.map((article, index) => (
             <Article
               key={index}
