@@ -12,7 +12,7 @@ export default function page() {
           {
             title: "Rénovations",
             description:
-              "Lorem20 ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.",
+              "Réalisez vos travaux de rénovation de plomberie avec nos experts. Que ce soit pour une salle de bain, une cuisine ou un système de chauffage, nous sommes là pour vous accompagner.",
             image: "normes.jpg",
             alt: "normes électriques tournevis compteur",
             buttonLink: "/realisations",
@@ -20,7 +20,7 @@ export default function page() {
           {
             title: "Chauffe-eau",
             description:
-              "Lorem20 ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.",
+              "Installez ou remplacez votre chauffe-eau avec nos services professionnels. Nous vous garantissons une installation conforme et efficace pour un confort optimal.",
             image: "normes.jpg",
             alt: "normes électriques tournevis compteur",
             buttonLink: "/realisations",
@@ -28,7 +28,7 @@ export default function page() {
           {
             title: "Maison Neuve",
             description:
-              "Lorem20 ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.",
+              "Pour les constructions neuves, nous proposons des services de plomberie sur mesure. De la conception à l'installation, nous assurons une plomberie fiable et durable.",
             image: "normes.jpg",
             alt: "normes électriques tournevis compteur",
             buttonLink: "/realisations",
@@ -36,7 +36,7 @@ export default function page() {
           {
             title: "Accesibilité PMR",
             description:
-              "Lorem20 ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.",
+              "Nous nous engageons à rendre votre salle de bain accessible aux personnes à mobilité réduite. Nos solutions incluent des barres d'appui, des douches à l'italienne et des toilettes adaptées.",      
             image: "normes.jpg",
             alt: "normes électriques tournevis compteur",
             buttonLink: "/realisations",

@@ -11,28 +11,28 @@ export default function Page() {
         cards={[
           {
           title: "Commandes centralisées",
-          description: "Lorem20 ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.",
+          description: "Contrôlez tous vos appareils depuis une seule interface. Nos solutions de domotique vous permettent de gérer l'éclairage, le chauffage et la sécurité de votre maison en toute simplicité.",
           image: "normes.jpg",
           alt: "normes électriques tournevis compteur",
           buttonLink: "/realisations",
           },
           {
           title: "Sonorisation",
-          description: "Lorem20 ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.",
+          description: "Sonorisez votre espace avec des systèmes audio intégrés. Profitez d'une expérience sonore immersive dans chaque pièce de votre maison.",
           image: "normes.jpg",
           alt: "normes électriques tournevis compteur",
           buttonLink: "/realisations",
           },
           {
           title: "Alarmes",
-          description: "Lorem20 ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.",
+          description: "Protégez votre maison avec nos systèmes d'alarme intelligents. Recevez des notifications en temps réel et gérez la sécurité de votre foyer depuis votre smartphone.",
           image: "normes.jpg",
           alt: "normes électriques tournevis compteur",
           buttonLink: "/realisations",
           },
           {
           title: "Vidéosurveillance",
-          description: "Lorem20 ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.",
+          description: "Surveillez votre propriété à distance avec nos systèmes de vidéosurveillance. Accédez aux caméras en direct et enregistrez des séquences pour une sécurité renforcée.",
           image: "normes.jpg",
           alt: "normes électriques tournevis compteur",
           buttonLink: "/realisations",
