@@ -7,55 +7,35 @@ export default function Page() {
     <main className=" mt-20 lg:mt-35">
       <Service
         title="Domotique"
-        description="Intégrez la domotique dans votre quotidien pour une maison intelligente et connectée."
+        description="Intégrez la domotique dans votre foyer pour un confort et une sécurité accrus. Nous installons des systèmes intelligents pour contrôler l'éclairage, le chauffage et plus encore depuis votre smartphone."
         cards={[
           {
-            title: "Contrôle d'accès",
-            icon: Lock,
-            color: "blue",
-            items: [
-              "Serrures connectées",
-              "Contrôle à distance",
-              "Sécurité renforcée",
-            ],
-            button: "En savoir +",
-            buttonLink: "/services/realisations",
+          title: "Commandes centralisées",
+          description: "Lorem20 ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.",
+          image: "normes.jpg",
+          alt: "normes électriques tournevis compteur",
+          buttonLink: "/realisations",
           },
           {
-            title: "Éclairage intelligent",
-            icon: Lightbulb,
-            color: "yellow",
-            items: [
-              "Ampoules connectées",
-              "Scénarios d'éclairage",
-              "Économie d'énergie",
-            ],
-            button: "En savoir +",
-            buttonLink: "/services/realisations",
+          title: "Sonorisation",
+          description: "Lorem20 ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.",
+          image: "normes.jpg",
+          alt: "normes électriques tournevis compteur",
+          buttonLink: "/realisations",
           },
           {
-            title: "Gestion de l'énergie",
-            icon: BatteryCharging,
-            color: "green",
-            items: [
-              "Suivi de consommation",
-              "Optimisation énergétique",
-              "Panneaux solaires",
-            ],
-            button: "En savoir +",
-            buttonLink: "/services/realisations",
+          title: "Alarmes",
+          description: "Lorem20 ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.",
+          image: "normes.jpg",
+          alt: "normes électriques tournevis compteur",
+          buttonLink: "/realisations",
           },
           {
-            title: "Sécurité et surveillance",
-            icon: Camera,
-            color: "red",
-            items: [
-              "Caméras connectées",
-              "Alarmes intelligentes",
-              "Détection de mouvement",
-            ],
-            button: "En savoir +",
-            buttonLink: "/services/realisations",
+          title: "Vidéosurveillance",
+          description: "Lorem20 ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.",
+          image: "normes.jpg",
+          alt: "normes électriques tournevis compteur",
+          buttonLink: "/realisations",
           },
         ]}
       />

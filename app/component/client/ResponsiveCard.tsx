@@ -1,29 +1,47 @@
-import React from 'react'
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
 
-export default function ResponsiveCard() {
-
-    interface CardProps {
-        title: string;
-        description: string;
-        image: string;
-        buttonText: string;
-        buttonLink: string;
-    }
-
+interface ResponsiveCardProps {
+  title: string;
+  description: string;
+  image: string;
+  alt: string;
+  buttonLink: string;
+}
+export default function ResponsiveCard({
+  title,
+  description,
+  image,
+  alt,
+  buttonLink,
+}: ResponsiveCardProps) {
   return (
-<article className="card lg:card-side bg-base-100 shadow-sm">
-  <figure>
-    <img
-      src="https://img.daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.webp"
-      alt="Album" />
+   <article className="card lg:flex-row lg:card-side bg-base-100 shadow-sm min-h-[300px]">
+  {/* Image avec taille fixe en desktop */}
+  <figure className="relative w-full lg:w-[300px] aspect-[4/3] flex-shrink-0">
+    <Image
+      src={`/images/services/${image}`}
+      alt={alt}
+      fill
+      className="object-cover"
+      sizes="(max-width: 768px) 100vw, 300px"
+    />
   </figure>
-  <div className="card-body">
-    <h2 className="card-title">New album is released!</h2>
-    <p>Click the button to listen on Spotiwhy app.</p>
+
+  {/* Texte qui prend le reste */}
+  <div className="card-body flex flex-col justify-between">
+    <div>
+      <h2 className="card-title">{title}</h2>
+      <p>{description}</p>
+    </div>
     <div className="card-actions justify-end">
-      <button className="btn btn-primary">Listen</button>
+      <Link href={buttonLink} className="btn btn-secondary">
+        ➔
+      </Link>
     </div>
   </div>
 </article>
-  )
+
+  );
 }

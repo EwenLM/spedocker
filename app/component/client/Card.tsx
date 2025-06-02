@@ -53,7 +53,7 @@ export default function ServiceCard({
           ))}
         </ul>
         <div className="card-actions justify-end">
-          <a href={buttonLink} className="btn btn-secondary">{button}</a>
+          <a href={buttonLink} className="btn btn-secondary btn-outline">{button}</a>
         </div>
       </div>
     </article>
