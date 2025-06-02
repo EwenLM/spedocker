@@ -1,5 +1,6 @@
 import { render } from "@react-email/render";
 import EmailTemplate from "@/app/emails/EmailTemplate";
+import EmailTemplateSpe from "@/app/emails/EmailTemplateSpe";
 import nodemailer from "nodemailer";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -15,7 +16,7 @@ export async function POST(req: NextRequest) {
     }
 
     const transporter = nodemailer.createTransport({
-      host: "smtp-mail.outlook.com",
+      host: "smtp.office365.com",
       port: 587,
       secure: false,
       // tls: {
@@ -40,35 +41,23 @@ export async function POST(req: NextRequest) {
     console.log("formData:", formData);
     console.log("formData entries:", Object.entries(formData));
 
+    // Email pour le client
     await transporter.sendMail({
       from: process.env.SMTP_USER,
       to: email,
-      subject: "Test",
-      text: "Ceci est un test.",
+      subject: "Confirmation de votre demande",
+      html: await render(<EmailTemplate email={email} />),
     });
 
-    // // Email pour le client
-    // await transporter.sendMail({
-    //   from: process.env.SMTP_USER,
-    //   to: email,
-    //   subject: "Confirmation de votre demande",
-    //   html: await render(<EmailTemplate email={email} />),
-    // });
+    // Email pour SPE
+    const subject = formData.objet || "Nouvelle demande de contact";
 
-    // // Email pour SPE
-    // await transporter.sendMail({
-    //   from: process.env.SMTP_USER,
-    //   to: "informatique@spe.bzh",
-    //   subject: "Nouvelle demande client",
-    //   html: `
-    //     <h2>Détails du formulaire :</h2>
-    //     <ul>
-    //       ${Object.entries(formData)
-    //         .map(([key, value]) => `<li><b>${key}</b> : ${value}</li>`)
-    //         .join("")}
-    //     </ul>
-    //   `,
-    // });
+    await transporter.sendMail({
+      from: process.env.SMTP_USER,
+      to: "informatique@spe.bzh",
+      subject: subject,
+      html: await render(<EmailTemplateSpe email={email} formData={formData} />),
+    });
 
     return NextResponse.json({ success: true });
   } catch (error) {

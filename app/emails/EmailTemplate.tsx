@@ -25,7 +25,6 @@ export default function EmailTemplate({ email }: EmailTemplateProps) {
           <Text>
             Nous avons bien reçu votre message. Nous vous contacterons dès que possible.
           </Text>
-          <Text>Adresse email : {email}</Text>
           <Text>L’équipe SPE.</Text>
         </Container>
       </Body>

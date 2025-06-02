@@ -11,9 +11,8 @@ import {
 import Count from "./component/client/Count";
 import Link from "next/link";
 import Card from "./component/client/Card";
-import Article from "./component/client/Article";
+import ArticleCarousel from "./component/client/ArticleCarousel";
 import Note from "./component/client/Note";
-
 
 // Tableau des Services
 const services = [
@@ -136,7 +135,7 @@ const articles = [
       "knx partner logo",
       "electriciencertifé.fr, réseau legrand logo",
       "delta dore logo",
-    ]
+    ],
   },
 ];
 
@@ -149,7 +148,7 @@ export default function Home() {
       {/* Contenu centré sur la page */}
       <main id="main" className="flex flex-col mx-auto mb-20 container">
         <section id="service" className="flex flex-col md:my-10  items-center ">
-          <h2 className="text-3xl md:text-4xl text-center">Nos Services</h2>
+          <h2 className="text-3xl font-bold md:text-4xl text-center">Nos Services</h2>
           <div className="md:flex my-7">
             {services.map((service, index) => (
               <Card key={index} {...service} />
@@ -173,7 +172,7 @@ export default function Home() {
           className="flex flex-col md:my-10  items-center bg-base-200 md:bg-base-100"
         >
           <div className="bg-base-200 w-full absolute md:h-[270px]"></div>
-          <h2 className="text-3xl md:text-4xl pt-3 text-center z-5">
+          <h2 className="text-3xl font-bold md:text-4xl pt-3 text-center z-5">
             Secteurs d'activité
           </h2>
           <div className="md:flex my-7">
@@ -184,23 +183,12 @@ export default function Home() {
         </section>
 
         {/* ==============Certif et partenaires=========== */}
-        <section className="w-full ">
-          {articles.map((article, index) => (
-            <Article
-              key={index}
-              title={article.title}
-              paragraph={article.paragraph}
-              images={article.images}
-              links={article.links}
-              alts={article.alts}
-              reversed={index % 2 !== 0} 
-            />
-          ))}
+        <section className="w-full">
+          <ArticleCarousel articles={articles} />
         </section>
 
         {/* =============Avis Google============== */}
-        <Note/>
-
+        <Note />
       </main>
     </>
   );

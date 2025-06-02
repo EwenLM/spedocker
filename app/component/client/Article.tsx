@@ -22,46 +22,35 @@ export default function Article({
   reversed = false,
 }: ArticleProps) {
   return (
-    <article className="my-20 bg-blue-100 shadow-md rounded-lg">
-      <div className="grid md:grid-cols-5 items-stretch gap-4">
-        {/* ASIDE : logos */}
-        <aside
-          className={clsx(
-            "md:col-span-2 flex flex-wrap justify-center items-center",
-            reversed ? "md:order-1" : "md:order-2"
-          )}
-        >
-          {images.map((image, index) => (
-            <Link
-              key={index}
-              href={links[index]}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition"
-            >
-              <Image
-                src={`/images/certifs_partenaires/${image}.png`}
-                alt={alts[index] || "Logo partenaire"}
-                width={150}
-                height={100}
-                className="object-contain px-1 m-1 hover:border-b-3 border-b-primary"
-              />
-            </Link>
-          ))}
-        </aside>
+    <article className="my-20 rounded-xl border border-gray-200 bg-white shadow-lg overflow-hidden">
+      <div className="flex flex-col md:flex-row gap-6 items-stretch">
+  {/* Texte */}
+  <div className="md:w-3/5 p-8 flex flex-col justify-center">
+    <h2 className="text-4xl font-bold text-blue-800 mb-4">{title}</h2>
+    <p className="text-gray-700 leading-relaxed">{paragraph}</p>
+  </div>
 
-        {/* Texte */}
-        <div
-          className={clsx( 
-            "md:col-span-3 bg-white p-8 shadow-md flex flex-col justify-center rounded-lg",
-            reversed ? "md:order-2" : "md:order-1"
-            
-          )}
-        >
-          <h3 className="text-2xl font-bold mb-4">{title}</h3>
-          <p className="text-justify">{paragraph}</p>
-        </div>
-      </div>
+  {/* Logos */}
+  <aside className="md:w-2/5 p-6 bg-gradient-to-b from-blue-50 to-blue-100 flex flex-wrap justify-center items-center gap-4">
+    {images.map((image, index) => (
+      <Link
+        key={index}
+        href={links[index]}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="transition hover:scale-105 hover:drop-shadow-md"
+      >
+        <Image
+          src={`/images/certifs_partenaires/${image}.png`}
+          alt={alts[index] || "Logo partenaire"}
+          width={100}
+          height={60}
+          className="object-contain"
+        />
+      </Link>
+    ))}
+  </aside>
+</div>
     </article>
   );
 }
