@@ -32,7 +32,7 @@ export default function ResponsiveCard({
   {/* Texte qui prend le reste */}
   <div className="card-body flex flex-col justify-between">
     <div>
-      <h2 className="card-title">{title}</h2>
+      <h2 className="card-title  text-xl lg:mt-5 pb-4">{title}</h2>
       <p>{description}</p>
     </div>
     <div className="card-actions justify-end">

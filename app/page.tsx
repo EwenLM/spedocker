@@ -147,7 +147,7 @@ export default function Home() {
 
       {/* ================Cards Services)================ */}
       {/* Contenu centré sur la page */}
-      <main id="main" className="flex flex-col mx-auto container">
+      <main id="main" className="flex flex-col mx-auto mb-20 container">
         <section id="service" className="flex flex-col md:my-10  items-center ">
           <h2 className="text-3xl md:text-4xl text-center">Nos Services</h2>
           <div className="md:flex my-7">

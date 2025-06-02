@@ -8,7 +8,7 @@ export default function Page() {
       <header className="pt-40 text-center">
         <h1 className="text-6xl font-bold">Notre Histoire</h1>
       </header>
-      <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical mt-30 container mx-auto">
+      <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical mt-30 mb-20 container mx-auto">
         <li>
           <div className="timeline-middle">
             <svg
