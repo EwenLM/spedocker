@@ -25,6 +25,7 @@
     "react-countup": "^6.5.3",
     "react-dom": "^19.0.0",
     "react-email": "^4.0.15",
+    "resend": "^4.5.1",
     "tailwindcss": "^4.1.6"
   },
   "devDependencies": {
