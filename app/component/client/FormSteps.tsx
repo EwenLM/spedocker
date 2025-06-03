@@ -196,7 +196,7 @@ export default function FormSteps({ fields, steps, onSubmit }: FormStepsProps) {
           {/* Form */}
           <div className="card bg-base-100 w-full max-w-2xl shrink-0 shadow-2xl">
             <div className="card-body md:p-25">
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} encType="multipart/form-data">
                 <fieldset className="fieldset">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {currentFields

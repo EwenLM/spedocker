@@ -38,16 +38,16 @@ export default function Nav() {
                 <Link href={"/"}>Services</Link>
                 <ul className="p-2">
                   <li>
-                    <Link href={"/"}>Electricité</Link>
+                    <Link href={"/service/electricite"}>Electricité</Link>
                   </li>
                   <li>
-                    <Link href={"/"}>Plomberie</Link>
+                    <Link href={"/service/plomberie"}>Plomberie</Link>
                   </li>
                   <li>
-                    <Link href={"/"}>Chauffage</Link>
+                    <Link href={"/service/chauffage"}>Chauffage</Link>
                   </li>
                   <li>
-                    <Link href={"/"}>Domotique</Link>
+                    <Link href={"/service/domotique"}>Domotique</Link>
                   </li>
                 </ul>
               </li>

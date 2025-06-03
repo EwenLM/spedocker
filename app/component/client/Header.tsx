@@ -16,7 +16,7 @@ export default function Header() {
   return (
     <header
       className="relative h-screen flex items-center justify-center overflow-hidden
-    bg-[url('/images/bg.jpg')] bg-fixed bg-no-repeat bg-cover
+    bg-[url('/images/bg.webp')] bg-fixed bg-no-repeat bg-cover
     bg-[center_50%] md:bg-[center_30%] md:h-screen h-[70vh]"
     >
       {/* Contenu z-2 */}
