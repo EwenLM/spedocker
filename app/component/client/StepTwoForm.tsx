@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent, FormEvent } from "react";
+import React, { useState, ChangeEvent, FormEvent, useEffect } from "react";
 
 type ObjetType = "Demande de devis" | "Candidature" | "Renseignement";
 
@@ -14,6 +14,7 @@ interface StepTwoFormProps {
   selectedObjet: ObjetType;
   onPrevious: () => void;
   onSubmit: (data: Record<string, any>) => Promise<void>;
+  initialData: Record<string, any>;
 }
 
 const secondForms: Record<ObjetType, Field[]> = {
@@ -37,9 +38,13 @@ const secondForms: Record<ObjetType, Field[]> = {
   ],
 };
 
-export default function StepTwoForm({ selectedObjet, onPrevious, onSubmit }: StepTwoFormProps) {
-  const [formData, setFormData] = useState<Record<string, any>>({});
+export default function StepTwoForm({ selectedObjet, onPrevious, onSubmit, initialData }: StepTwoFormProps) {
+  const [formData, setFormData] = useState<Record<string, any>>(initialData);
   const [errors, setErrors] = useState<Record<string, string>>({});
+
+  useEffect(() => {
+    setFormData(initialData);
+  }, [initialData]);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value, type } = e.target;
@@ -64,7 +69,7 @@ export default function StepTwoForm({ selectedObjet, onPrevious, onSubmit }: Ste
 
     const currentFields = secondForms[selectedObjet];
 
-    currentFields.forEach(field => {
+    currentFields.forEach((field) => {
       if (field.type !== "file" && !formData[field.name]) {
         newErrors[field.name] = `${field.label} est requis`;
         isValid = false;
@@ -101,6 +106,7 @@ export default function StepTwoForm({ selectedObjet, onPrevious, onSubmit }: Ste
                         value={option}
                         className={field.type === "checkbox" ? "checkbox checkbox-primary" : "radio checked:bg-primary"}
                         onChange={handleChange}
+                        checked={Array.isArray(formData[field.name]) ? formData[field.name].includes(option) : false}
                       />
                       <span className="ml-2">{option}</span>
                     </label>
@@ -118,6 +124,7 @@ export default function StepTwoForm({ selectedObjet, onPrevious, onSubmit }: Ste
                   placeholder={field.placeholder}
                   className="textarea w-full bg-base-200"
                   onChange={handleChange}
+                  value={formData[field.name] || ""}
                 />
                 {errors[field.name] && <p className="text-red-500 text-xs mt-1">{errors[field.name]}</p>}
               </div>
@@ -142,8 +149,9 @@ export default function StepTwoForm({ selectedObjet, onPrevious, onSubmit }: Ste
                   type={field.type}
                   name={field.name}
                   placeholder={field.placeholder}
-                  className="input w-full bg-base-200 border-none focus:outline-none focus:inset-shadow-sm/10 focus:ring-0"
+                  className="input w-full bg-base-200"
                   onChange={handleChange}
+                  value={formData[field.name] || ""}
                 />
                 {errors[field.name] && <p className="text-red-500 text-xs mt-1">{errors[field.name]}</p>}
               </div>

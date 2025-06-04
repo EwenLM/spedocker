@@ -30,11 +30,12 @@ interface FormStepsProps {
 export default function FormSteps({ fields, steps, onSubmit }: FormStepsProps) {
   const [step, setStep] = useState<1 | 2>(1);
   const [selectedObjet, setSelectedObjet] = useState<ObjetType | "">("");
-  const [step1Data, setStep1Data] = useState<Record<string, any>>({});
+  const [formData, setFormData] = useState<Record<string, any>>({});
   const [message, setMessage] = useState<{ text: string; isError: boolean } | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleNextStep = (data: Record<string, any>) => {
-    setStep1Data(data);
+    setFormData(data);
     setStep(2);
   };
 
@@ -43,7 +44,8 @@ export default function FormSteps({ fields, steps, onSubmit }: FormStepsProps) {
   };
 
   const handleSubmit = async (data: Record<string, any>) => {
-    const allData = { ...step1Data, ...data };
+    setIsLoading(true);
+    const allData = { ...formData, ...data };
     try {
       await onSubmit({ email: allData.email, formData: allData });
       setMessage({
@@ -55,6 +57,8 @@ export default function FormSteps({ fields, steps, onSubmit }: FormStepsProps) {
         text: "Votre message n'a pas pu être envoyé.",
         isError: true
       });
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -73,10 +77,16 @@ export default function FormSteps({ fields, steps, onSubmit }: FormStepsProps) {
           <div className="card bg-base-100 w-full max-w-2xl shrink-0 shadow-2xl">
             <div className="card-body md:p-25 transition-all duration-700 min-h-[600px] lg:min-h-[700px]">
               {step === 1 ? (
-                <StepOneForm fields={fields} onNext={handleNextStep} setSelectedObjet={setSelectedObjet} />
+                <StepOneForm fields={fields} onNext={handleNextStep} setSelectedObjet={setSelectedObjet} formData={formData} setFormData={setFormData} />
               ) : selectedObjet ? (
-                <StepTwoForm selectedObjet={selectedObjet} onPrevious={handlePreviousStep} onSubmit={handleSubmit} />
+                <StepTwoForm
+                  selectedObjet={selectedObjet}
+                  onPrevious={handlePreviousStep}
+                  onSubmit={handleSubmit}
+                  initialData={formData}
+                />
               ) : null}
+              {isLoading && <span className="loading loading-spinner loading-xl"></span>}
               {message && (
                 <p className={`text-center mt-4 ${message.isError ? 'text-red-500' : 'text-green-500'}`}>
                   {message.text}

@@ -20,10 +20,11 @@ interface StepOneFormProps {
   fields: Field[];
   onNext: (data: Record<string, any>) => void;
   setSelectedObjet: React.Dispatch<React.SetStateAction<ObjetType | "">>;
+  formData: Record<string, any>;
+  setFormData: React.Dispatch<React.SetStateAction<Record<string, any>>>;
 }
 
-export default function StepOneForm({ fields, onNext, setSelectedObjet }: StepOneFormProps) {
-  const [formData, setFormData] = useState<Record<string, any>>({});
+export default function StepOneForm({ fields, onNext, setSelectedObjet, formData, setFormData }: StepOneFormProps) {
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -51,11 +52,6 @@ export default function StepOneForm({ fields, onNext, setSelectedObjet }: StepOn
     return isValid;
   };
 
-  const isFormComplete = fields.every(field => {
-    if ("options" in field) return true; // Skip validation for select fields
-    return !!formData[field.name];
-  });
-
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
@@ -77,6 +73,7 @@ export default function StepOneForm({ fields, onNext, setSelectedObjet }: StepOn
                   handleChange(e);
                   setSelectedObjet(e.target.value as ObjetType);
                 }}
+                value={formData[field.name] || ""}
                 required
               >
                 <option value="">Sélectionner un objet</option>
@@ -91,6 +88,7 @@ export default function StepOneForm({ fields, onNext, setSelectedObjet }: StepOn
                 placeholder={field.placeholder}
                 className="input w-full bg-base-200"
                 onChange={handleChange}
+                value={formData[field.name] || ""}
                 required
               />
             )}
@@ -99,7 +97,7 @@ export default function StepOneForm({ fields, onNext, setSelectedObjet }: StepOn
         ))}
       </div>
       <div className="flex flex-col gap-4 mt-8">
-        <button type="submit" className="btn btn-primary w-full" disabled={!isFormComplete}>
+        <button type="submit" className="btn btn-primary w-full">
           Suivant
         </button>
       </div>
