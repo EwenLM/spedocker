@@ -75,7 +75,7 @@ export default function FormSteps({ fields, steps, onSubmit }: FormStepsProps) {
             <p className="py-6 text-gray-600">{currentDescription}</p>
           </div>
           <div className="card bg-base-100 w-full max-w-2xl shrink-0 shadow-2xl">
-            <div className="card-body md:p-25 transition-all duration-700 min-h-[600px] justify-center">
+            <div className="card-body md:px-25 transition-all duration-700 min-h-[600px] lg:min-h-[650px] justify-center">
               {step === 1 ? (
                 <StepOneForm fields={fields} onNext={handleNextStep} setSelectedObjet={setSelectedObjet} formData={formData} setFormData={setFormData} />
               ) : selectedObjet ? (
