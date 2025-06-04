@@ -70,7 +70,7 @@ export default function StepOneForm({
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center justify-center content-center">
         {fields.map((field, index) => (
           <div key={index} className="mb-2">
             <label className="label">{field.label}</label>

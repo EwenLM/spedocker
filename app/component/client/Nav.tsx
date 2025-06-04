@@ -2,9 +2,14 @@
 
 import React, { use, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 
 export default function Nav() {
+
+  // Utilisation de usePathname pour obtenir le chemin actuel
+  const pathname = usePathname();
+
   return (
     <nav className="fixed w-full z-10">
       <div className="navbar bg-base-100 shadow-sm p-0">
@@ -32,7 +37,12 @@ export default function Nav() {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[3000] mt-3 w-52 p-2 shadow"
             >
               <li>
-                <Link href={"/a-propos"}>A Propos</Link>
+                <Link
+                  href={"/a-propos"}
+                  className={pathname === "/a-propos" ? "active" : ""}
+                >
+                  A Propos
+                </Link>
               </li>
               <li>
                 <Link href={"/"}>Services</Link>
@@ -70,34 +80,48 @@ export default function Nav() {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <Link href={"/about"} className="text-lg">A Propos</Link>
+              <Link href={"/about"} className="text-lg">
+                A Propos
+              </Link>
             </li>
             <li>
               <details>
                 <summary className="text-lg">Services</summary>
                 <ul className="p-2">
                   <li>
-                    <Link href={""} className="text-lg">Electricité</Link>
+                    <Link href={""} className="text-lg">
+                      Electricité
+                    </Link>
                   </li>
                   <li>
-                    <Link href={""} className="text-lg">Plomberie</Link>
+                    <Link href={""} className="text-lg">
+                      Plomberie
+                    </Link>
                   </li>
                   <li>
-                    <Link href={""} className="text-lg">Chauffage</Link>
+                    <Link href={""} className="text-lg">
+                      Chauffage
+                    </Link>
                   </li>
                   <li>
-                    <Link href={""} className="text-lg">Domotique</Link>
+                    <Link href={""} className="text-lg">
+                      Domotique
+                    </Link>
                   </li>
                 </ul>
               </details>
             </li>
             <li>
-              <Link href={""} className="text-lg">Réalisations</Link>
+              <Link href={""} className="text-lg">
+                Réalisations
+              </Link>
             </li>
           </ul>
         </div>
         <div className="navbar-end md:me-5">
-          <Link href={"/contact"} className="btn btn-primary text-lg">Contact</Link>
+          <Link href={"/contact"} className="btn btn-primary text-lg">
+            Contact
+          </Link>
         </div>
       </div>
     </nav>

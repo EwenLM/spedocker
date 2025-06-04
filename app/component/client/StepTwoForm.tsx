@@ -149,7 +149,7 @@ export default function StepTwoForm({ selectedObjet, onPrevious, onSubmit, initi
                   type={field.type}
                   name={field.name}
                   placeholder={field.placeholder}
-                  className="input input-bordered w-full bg-base-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
+                  className="input w-full bg-base-200 border-none focus:outline-none focus:inset-shadow-sm/15 focus:ring-0"
                   onChange={handleChange}
                   value={formData[field.name] || ""}
                 />
