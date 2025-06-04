@@ -1,6 +1,7 @@
 import React from "react";
 import { LucideIcon } from "lucide-react";
 import clsx from "clsx";
+import Link from "next/link";
 
 interface ServiceCardProps {
   title: string;
@@ -8,7 +9,7 @@ interface ServiceCardProps {
   color: string;
   items: string[];
   button: string;
-  buttonLink?: string;
+  buttonLink: string;
 }
 
 const borderHoverClasses: Record<string, string> = {
@@ -53,7 +54,7 @@ export default function ServiceCard({
           ))}
         </ul>
         <div className="card-actions justify-end">
-          <a href={buttonLink} className="btn btn-secondary btn-outline">{button}</a>
+          <Link href={buttonLink} className="btn btn-secondary btn-outline">{button}</Link>
         </div>
       </div>
     </article>

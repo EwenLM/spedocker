@@ -17,7 +17,7 @@ interface EmailTemplateProps {
 }
 
 // Ensemble des champs à exclure
-const excludedFields = new Set(['_honey']);
+const excludedFields = new Set(['_honey','objet']);
 
 export default function EmailTemplate({ email, formData }: EmailTemplateProps) {
   // Filtrer les champs à exclure

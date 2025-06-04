@@ -161,7 +161,7 @@ export default function Home() {
           <h2 className="text-3xl text-center mx-3 mb-2-3 md:me-5">
             A vos côtés depuis <Count /> ans
           </h2>
-          <Link href={""} className="btn mt-3 lg:mt-0 btn-secondary text-lg">
+          <Link href={"/a-propos"} className="btn mt-3 lg:mt-0 btn-secondary text-lg">
             Découvrire notre histoire
           </Link>
         </div>

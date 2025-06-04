@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
 
     //  Email pour SPE
     await resend.emails.send({
-      from: "Formulaire SPE <nepasrepondre@spe.bzh>>",
+      from: "Formulaire SPE <nepasrepondre@spe.bzh>",
       to: "informatique@spe.bzh",
       subject: subject,
       react: EmailTemplateSpe({ email, formData }),

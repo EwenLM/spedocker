@@ -32,7 +32,7 @@ export default function Nav() {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[3000] mt-3 w-52 p-2 shadow"
             >
               <li>
-                <Link href={"/about"}>A Propos</Link>
+                <Link href={"/a-propos"}>A Propos</Link>
               </li>
               <li>
                 <Link href={"/"}>Services</Link>
