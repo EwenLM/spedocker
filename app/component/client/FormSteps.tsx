@@ -74,7 +74,7 @@ export default function FormSteps({ fields, steps, onSubmit }: FormStepsProps) {
             <h2 className="text-4xl font-bold">{currentTitle}</h2>
             <p className="py-6 text-gray-600">{currentDescription}</p>
           </div>
-          <div className="card bg-base-100 w-full max-w-2xl shrink-0 shadow-2xl">
+          <div className="card bg-base-100 w-full max-w-2xl shrink-0 shadow-2xl justify-center">
             <div className="card-body md:px-25 transition-all duration-700 min-h-[600px] lg:min-h-[650px] justify-center">
               {step === 1 ? (
                 <StepOneForm fields={fields} onNext={handleNextStep} setSelectedObjet={setSelectedObjet} formData={formData} setFormData={setFormData} />
@@ -86,9 +86,9 @@ export default function FormSteps({ fields, steps, onSubmit }: FormStepsProps) {
                   initialData={formData}
                 />
               ) : null}
-              {isLoading && <span className="loading loading-spinner loading-xl items-center"></span>}
+              {isLoading && <span className="loading loading-spinner loading-xl items-center">Formulaire en cour de traitement</span>}
               {message && (
-                <p className={`text-center mt-4 ${message.isError ? 'text-red-500' : 'text-green-500'}`}>
+                <p className={` mt-10 ${message.isError ? 'text-red-500' : 'text-green-500'}`}>
                   {message.text}
                 </p>
               )}
