@@ -10,16 +10,13 @@ type Field =
       label: string;
       placeholder?: string;
       name: string;
-      options?: never; 
     }
   | {
       type: "select";
       label: string;
       name: string;
       options: string[];
-      placeholder?: never; 
     };
-
 
 interface FormStepsProps {
   fields: Field[];
@@ -34,6 +31,7 @@ export default function FormSteps({ fields, steps, onSubmit }: FormStepsProps) {
   const [step, setStep] = useState<1 | 2>(1);
   const [selectedObjet, setSelectedObjet] = useState<ObjetType | "">("");
   const [step1Data, setStep1Data] = useState<Record<string, any>>({});
+  const [message, setMessage] = useState<{ text: string; isError: boolean } | null>(null);
 
   const handleNextStep = (data: Record<string, any>) => {
     setStep1Data(data);
@@ -46,7 +44,18 @@ export default function FormSteps({ fields, steps, onSubmit }: FormStepsProps) {
 
   const handleSubmit = async (data: Record<string, any>) => {
     const allData = { ...step1Data, ...data };
-    await onSubmit({ email: allData.email, formData: allData });
+    try {
+      await onSubmit({ email: allData.email, formData: allData });
+      setMessage({
+        text: `Votre message a bien été transmis. Un mail de confirmation vous a été envoyé à l'adresse ${allData.email}.`,
+        isError: false
+      });
+    } catch (error) {
+      setMessage({
+        text: "Votre message n'a pas pu être envoyé.",
+        isError: true
+      });
+    }
   };
 
   const currentTitle = step === 1 ? steps.step1.title : selectedObjet ? steps.step2[selectedObjet].title : "Étape 2";
@@ -68,6 +77,11 @@ export default function FormSteps({ fields, steps, onSubmit }: FormStepsProps) {
               ) : selectedObjet ? (
                 <StepTwoForm selectedObjet={selectedObjet} onPrevious={handlePreviousStep} onSubmit={handleSubmit} />
               ) : null}
+              {message && (
+                <p className={`text-center mt-4 ${message.isError ? 'text-red-500' : 'text-green-500'}`}>
+                  {message.text}
+                </p>
+              )}
             </div>
           </div>
         </div>

@@ -36,7 +36,6 @@ export default function StepOneForm({ fields, onNext, setSelectedObjet }: StepOn
     let isValid = true;
 
     fields.forEach((field) => {
-      // Vérifiez si le champ est de type "file" en utilisant une vérification de type appropriée
       if (!("options" in field) && !formData[field.name]) {
         newErrors[field.name] = `${field.label} est requis`;
         isValid = false;
@@ -52,6 +51,10 @@ export default function StepOneForm({ fields, onNext, setSelectedObjet }: StepOn
     return isValid;
   };
 
+  const isFormComplete = fields.every(field => {
+    if ("options" in field) return true; // Skip validation for select fields
+    return !!formData[field.name];
+  });
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -86,7 +89,7 @@ export default function StepOneForm({ fields, onNext, setSelectedObjet }: StepOn
                 type={field.type}
                 name={field.name}
                 placeholder={field.placeholder}
-                className="input w-full bg-base-200 border-none focus:outline-none focus:inset-shadow-sm/10 focus:ring-0"
+                className="input w-full bg-base-200"
                 onChange={handleChange}
                 required
               />
@@ -96,7 +99,7 @@ export default function StepOneForm({ fields, onNext, setSelectedObjet }: StepOn
         ))}
       </div>
       <div className="flex flex-col gap-4 mt-8">
-        <button type="submit" className="btn btn-primary w-full">
+        <button type="submit" className="btn btn-primary w-full" disabled={!isFormComplete}>
           Suivant
         </button>
       </div>
