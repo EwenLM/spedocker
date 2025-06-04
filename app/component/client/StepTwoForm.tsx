@@ -122,7 +122,7 @@ export default function StepTwoForm({ selectedObjet, onPrevious, onSubmit, initi
                 <textarea
                   name={field.name}
                   placeholder={field.placeholder}
-                  className="textarea w-full bg-base-200"
+                  className="textarea textarea-bordered w-full bg-base-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
                   onChange={handleChange}
                   value={formData[field.name] || ""}
                 />
@@ -149,7 +149,7 @@ export default function StepTwoForm({ selectedObjet, onPrevious, onSubmit, initi
                   type={field.type}
                   name={field.name}
                   placeholder={field.placeholder}
-                  className="input w-full bg-base-200"
+                  className="input input-bordered w-full bg-base-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
                   onChange={handleChange}
                   value={formData[field.name] || ""}
                 />
