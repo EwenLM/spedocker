@@ -11,8 +11,9 @@ export default function Footer() {
             <Image
               src="/images/logo.png"
               width={150}
-              height={100}
+              height={150}
               alt="logo spe société pontivyenne électricité planette"
+              className="h-auto w-auto"
             />
           </Link>
         </aside>
