@@ -90,7 +90,7 @@ export default function Nav() {
                 <summary className="text-lg">Services</summary>
                 <ul className="p-2">
                   <li>
-                    <Link href={"/services/eletricite"} className="text-lg">
+                    <Link href={"/services/electricite"} className="text-lg">
                       Electricité
                     </Link>
                   </li>

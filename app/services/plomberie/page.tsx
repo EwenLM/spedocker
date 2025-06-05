@@ -2,7 +2,7 @@ import React from "react";
 import Service from "@/app/component/client/Service";
 import {} from "lucide-react";
 
-export default function page() {
+export default function Page() {
   return (
     <main>
       <Service

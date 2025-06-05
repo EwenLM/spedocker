@@ -27,7 +27,7 @@ const services = [
       "Ventilation",
     ],
     button: "En savoir +",
-    buttonLink: "/service/electricite",
+    buttonLink: "/services/electricite",
   },
   {
     title: "Plomberie",
@@ -35,7 +35,7 @@ const services = [
     color: "blue",
     items: ["Rénovations", "Chauffe-eau", "Maison neuve", "Accessibilité PMR"],
     button: "En savoir +",
-    buttonLink: "/service/plomberie",
+    buttonLink: "/services/plomberie",
   },
   {
     title: "Chauffage",
@@ -48,7 +48,7 @@ const services = [
       "Chauffage au sol",
     ],
     button: "En savoir +",
-    buttonLink: "/service/chauffage",
+    buttonLink: "/services/chauffage",
   },
   {
     title: "Domotique",
@@ -61,7 +61,7 @@ const services = [
       "Vidéosurveillance",
     ],
     button: "En savoir +",
-    buttonLink: "/service/domotique",
+    buttonLink: "/services/domotique",
   },
 ];
 
