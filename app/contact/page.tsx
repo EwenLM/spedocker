@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import FormSteps from "../component/client/FormSteps";
+import { Main } from "next/document";
 
 export default function Page() {
   const handleForSubmit = async (data: { email: string; formData: Record<string, any> }) => {

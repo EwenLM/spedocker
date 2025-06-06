@@ -142,54 +142,62 @@ const articles = [
 export default function Home() {
   return (
     <>
-      <Header />
+        <Header />
 
-      {/* ================Cards Services)================ */}
-      {/* Contenu centré sur la page */}
-      <main id="main" className="flex flex-col mx-auto mb-20 container">
-        <section id="service" className="flex flex-col md:my-10  items-center ">
-          <h2 className="text-3xl font-bold md:text-4xl text-center">Nos Services</h2>
-          <div className="md:flex my-7">
-            {services.map((service, index) => (
-              <Card key={index} {...service} />
-            ))}
+        {/* ================Cards Services)================ */}
+        {/* Contenu centré sur la page */}
+        <main id="main" className="flex flex-col mx-auto mb-20 container">
+          <section
+            id="service"
+            className="flex flex-col md:my-10  items-center "
+          >
+            <h2 className="text-3xl font-bold md:text-4xl text-center">
+              Nos Services
+            </h2>
+            <div className="md:flex my-7">
+              {services.map((service, index) => (
+                <Card key={index} {...service} />
+              ))}
+            </div>
+          </section>
+
+          {/* ================Call to action================ */}
+          <div className="bg-white py-5 mb-10 flex flex-col md:flex-row rounded-lg mx-auto shadow-sm md:w-full justify-center items-center container">
+            <h2 className="text-3xl text-center mx-3 mb-2-3 md:me-5">
+              A vos côtés depuis <Count /> ans
+            </h2>
+            <Link
+              href={"/a-propos"}
+              className="btn mt-3 lg:mt-0 btn-secondary text-lg"
+            >
+              Découvrire notre histoire
+            </Link>
           </div>
-        </section>
 
-        {/* ================Call to action================ */}
-        <div className="bg-white py-5 mb-10 flex flex-col md:flex-row rounded-lg mx-auto shadow-sm md:w-full justify-center items-center container">
-          <h2 className="text-3xl text-center mx-3 mb-2-3 md:me-5">
-            A vos côtés depuis <Count /> ans
-          </h2>
-          <Link href={"/a-propos"} className="btn mt-3 lg:mt-0 btn-secondary text-lg">
-            Découvrire notre histoire
-          </Link>
-        </div>
+          {/* =================Card Secteurs================== */}
+          <section
+            id="secteur"
+            className="flex flex-col md:my-10  items-center bg-base-200 md:bg-base-100"
+          >
+            <div className="bg-base-200 w-full absolute md:h-[270px]"></div>
+            <h2 className="text-3xl font-bold md:text-4xl pt-3 text-center z-5">
+              Secteurs d'activité
+            </h2>
+            <div className="md:flex my-7">
+              {secteurs.map((secteur, index) => (
+                <Card key={index} {...secteur} />
+              ))}
+            </div>
+          </section>
 
-        {/* =================Card Secteurs================== */}
-        <section
-          id="secteur"
-          className="flex flex-col md:my-10  items-center bg-base-200 md:bg-base-100"
-        >
-          <div className="bg-base-200 w-full absolute md:h-[270px]"></div>
-          <h2 className="text-3xl font-bold md:text-4xl pt-3 text-center z-5">
-            Secteurs d'activité
-          </h2>
-          <div className="md:flex my-7">
-            {secteurs.map((secteur, index) => (
-              <Card key={index} {...secteur} />
-            ))}
-          </div>
-        </section>
+          {/* ==============Certif et partenaires=========== */}
+          <section className="w-full">
+            <ArticleCarousel articles={articles} />
+          </section>
 
-        {/* ==============Certif et partenaires=========== */}
-        <section className="w-full">
-          <ArticleCarousel articles={articles} />
-        </section>
-
-        {/* =============Avis Google============== */}
-        <Note />
-      </main>
+          {/* =============Avis Google============== */}
+          <Note />
+        </main>
     </>
   );
 }

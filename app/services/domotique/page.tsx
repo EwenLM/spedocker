@@ -1,5 +1,5 @@
 import React from "react";
-import Service from "@/app/component/client/Service";
+import Service from "../../component/client/Service";
 import { Lightbulb, Lock, BatteryCharging, Camera } from "lucide-react";
 
 export default function Page() {

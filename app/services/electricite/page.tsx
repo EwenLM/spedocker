@@ -1,4 +1,4 @@
-import Service from "@/app/component/client/Service";
+import Service from "../../component/client/Service";
 
 export default function Page() {
   return (

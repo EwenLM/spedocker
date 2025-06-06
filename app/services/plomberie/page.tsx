@@ -1,5 +1,5 @@
 import React from "react";
-import Service from "@/app/component/client/Service";
+import Service from "../../component/client/Service";
 import {} from "lucide-react";
 
 export default function Page() {

@@ -1,5 +1,7 @@
 import React from "react";
+
 import ResponsiveCard from "@/app/component/client/ResponsiveCard";
+import { Main } from "next/document";
 
 interface ServiceProps {
   title: string;
