@@ -1,5 +1,5 @@
+"use client";
 import React, { useState } from "react";
-import AdminLayout from "@/app/admin/layout";
 import {
   PlusIcon,
   SearchIcon,
@@ -18,7 +18,6 @@ export default function Page() {
       project.location.toLowerCase().includes(searchTerm.toLowerCase())
   );
   return (
-    <AdminLayout>
       <div className="space-y-6">
         <div className="flex items-center justify-between">
           <h1 className="text-2xl font-semibold text-gray-800">
@@ -214,7 +213,6 @@ export default function Page() {
           </div>
         </div>
       </div>
-    </AdminLayout>
   );
 }
 // Additional icons needed

@@ -45,17 +45,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="fr">
       <body className="bg-base-100">
-        <>
           <Nav />
           {children}
           <Footer />
-        </>
       </body>
     </html>
   );
