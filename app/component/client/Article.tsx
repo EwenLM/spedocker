@@ -44,8 +44,8 @@ export default function Article({
           src={`/images/certifs_partenaires/${image}.png`}
           alt={alts[index] || "Logo partenaire"}
           width={100}
-          height={60}
-          className="object-contain"
+          height={100}
+          className="object-contain w-auto h-auto"
         />
       </Link>
     ))}

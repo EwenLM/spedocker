@@ -48,16 +48,16 @@ export default function Nav() {
                 <Link href={"/"}>Services</Link>
                 <ul className="p-2">
                   <li>
-                    <Link href={"/service/electricite"}>Electricité</Link>
+                    <Link href={"/services/electricite"}>Electricité</Link>
                   </li>
                   <li>
-                    <Link href={"/service/plomberie"}>Plomberie</Link>
+                    <Link href={"/services/plomberie"}>Plomberie</Link>
                   </li>
                   <li>
-                    <Link href={"/service/chauffage"}>Chauffage</Link>
+                    <Link href={"/services/chauffage"}>Chauffage</Link>
                   </li>
                   <li>
-                    <Link href={"/service/domotique"}>Domotique</Link>
+                    <Link href={"/services/domotique"}>Domotique</Link>
                   </li>
                 </ul>
               </li>
@@ -71,8 +71,9 @@ export default function Nav() {
               <Image
                 src="/images/logo.png"
                 width={150}
-                height={100}
+                height={150}
                 alt="logo spe société pontivyenne électricité planette"
+                className="h-auto w-auto"
               />
             </Link>
           </div>
@@ -80,7 +81,7 @@ export default function Nav() {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <Link href={"/about"} className="text-lg">
+              <Link href={"/a-propos"} className="text-lg">
                 A Propos
               </Link>
             </li>
@@ -89,22 +90,22 @@ export default function Nav() {
                 <summary className="text-lg">Services</summary>
                 <ul className="p-2">
                   <li>
-                    <Link href={""} className="text-lg">
+                    <Link href={"/services/electricite"} className="text-lg">
                       Electricité
                     </Link>
                   </li>
                   <li>
-                    <Link href={""} className="text-lg">
+                    <Link href={"/services/plomberie"} className="text-lg">
                       Plomberie
                     </Link>
                   </li>
                   <li>
-                    <Link href={""} className="text-lg">
+                    <Link href={"services/chauffage"} className="text-lg">
                       Chauffage
                     </Link>
                   </li>
                   <li>
-                    <Link href={""} className="text-lg">
+                    <Link href={"/services/domotique"} className="text-lg">
                       Domotique
                     </Link>
                   </li>
@@ -112,7 +113,7 @@ export default function Nav() {
               </details>
             </li>
             <li>
-              <Link href={""} className="text-lg">
+              <Link href={"/realisations"} className="text-lg">
                 Réalisations
               </Link>
             </li>

@@ -17,31 +17,30 @@ export default function ResponsiveCard({
   buttonLink,
 }: ResponsiveCardProps) {
   return (
-   <article className="card lg:flex-row lg:card-side bg-base-100 shadow-sm min-h-[300px]">
-  {/* Image avec taille fixe en desktop */}
-  <figure className="relative w-full lg:w-[300px] aspect-[4/3] flex-shrink-0">
-    <Image
-      src={`/images/services/${image}`}
-      alt={alt}
-      fill
-      className="object-cover"
-      sizes="(max-width: 768px) 100vw, 300px"
-    />
-  </figure>
+    <article className="card lg:flex-row lg:card-side bg-base-100 shadow-sm min-h-[300px] my-5 lg:my-0">
+      {/* Image avec taille fixe en desktop */}
+      <figure className="relative w-full lg:w-[300px] aspect-[4/3] flex-shrink-0">
+        <Image
+          src={`/images/services/${image}`}
+          alt={alt}
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, 300px"
+        />
+      </figure>
 
-  {/* Texte qui prend le reste */}
-  <div className="card-body flex flex-col justify-between">
-    <div>
-      <h3 className="card-title  text-xl lg:mt-5 pb-4">{title}</h3>
-      <p>{description}</p>
-    </div>
-    <div className="card-actions justify-end">
-      <Link href={buttonLink} className="btn btn-secondary btn-outline">
-        ➔
-      </Link>
-    </div>
-  </div>
-</article>
-
+      {/* Texte qui prend le reste */}
+      <div className="card-body flex flex-col justify-between">
+        <div>
+          <h3 className="card-title  text-xl lg:mt-5 pb-4">{title}</h3>
+          <p>{description}</p>
+        </div>
+        <div className="card-actions justify-end">
+          <Link href={buttonLink} className="btn btn-secondary btn-outline">
+            ➔
+          </Link>
+        </div>
+      </div>
+    </article>
   );
 }
